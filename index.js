@@ -23,7 +23,7 @@ bot.on('message', async msg => {
         
         let embed = new Discord.MessageEmbed()
         .setColor('#ff6efd')
-        .setDescription('Test **successful**!')
+        .setDescription('This bot is online and is working perfectly fine!')
 
         msg.reply(embed)
     }
@@ -31,11 +31,11 @@ bot.on('message', async msg => {
     if (msg.content === cmdPrefix + 'help') {
 
         let embed = new Discord.MessageEmbed()
-        .setColor("GREEN")
+        .setColor("BLACK")
         .setTitle('Commands')
-        .addField('-test', 'Tests to see if bot is online.')
-        .addField('-help', 'Provides this panel.')
-
+        .addField('test', 'Tests to see if bot is online.')
+        .addField('help', 'Provides this panel.')
+        .addField('kick','Kicks a member from the server.)
         msg.channel.send(embed)
     }
 if(cmd === `${prefix}kick)}`
