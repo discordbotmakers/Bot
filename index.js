@@ -44,7 +44,15 @@ message.member.hasPermission("KICK_MEMBERS"))
 return message.reply('You cannot use this command. You need the Permission "KICK_MEMBERS" If you have the permission please retry.');
   let member = message.mentions.members.first() || message.guild.members.get(args[0]);
 if(!member)return
-message.channel.send
+message.channel.send("I cannot find the member. Please mention a vaild member!");
+if(!member.kickable) return message.channel.send("Sorry I cannot kick that user. Please make sure that i have a higher role then the user you are trying to kick");
+        let reason = args.slice(1).join(' ');
+        if(!reason) reason = "No reason provided";
+        await member.kick(reason)
+            .catch(e => message.reply(`Sorry I cannot kick this user please retry'Error: ${e}`));
+        message.reply( `I successfully kicked the user! `);
+    }
+
         }
     }
 });
